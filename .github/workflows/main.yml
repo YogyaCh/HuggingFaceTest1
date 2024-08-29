@@ -5,8 +5,6 @@ name: CI
 on:
   push:
     branches: [main]
-  pull_request:
-    branches: [main]
 
   workflow_dispatch:
 
@@ -20,7 +18,15 @@ jobs:
       with:
         python-version: '3.10'
     - name: Install dependenceies
-    - run: make install
+      run: make install
+    - name: Add remote
+      env:
+        HF: ${{secrets.HF}}
+      run: git remote add space https://huggingface.co/spaces/YogyaCh/Trail1
+    - name: Push to hub
+      env:
+        HF: ${{secrets.HF}}
+      run: git push --force https://huggingface.co/spaces/YogyaCh/Trail1 main
       
     
     
