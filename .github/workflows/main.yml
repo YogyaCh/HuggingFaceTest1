@@ -18,11 +18,11 @@ jobs:
     - name: Add remote
       env:
         HF: ${{secrets.HF}}
-      run: git remote add space https://huggingface.co/spaces/YogyaCh/Trail1
+      run: git remote add space https://YogyaCh:$HF@huggingface.co/spaces/YogyaCh/Trail1
     - name: Push to hub
       env:
         HF: ${{secrets.HF}}
-      run: git push --force https://huggingface.co/spaces/YogyaCh/Trail1 main
+      run: git push --force https://YogyaCh:$HF@huggingface.co/spaces/YogyaCh/Trail1 main
       
     
     
